@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "192454870213",
+    "project_id": "metro-station-3bcfe",
+    "storage_bucket": "metro-station-3bcfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:192454870213:android:e6c8b6d89d8cebeccf1cac",
+        "android_client_info": {
+          "package_name": "com.example.metro_station"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ3T4vw3L7zLu8NG9F8RVcyZGif6x7u-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
