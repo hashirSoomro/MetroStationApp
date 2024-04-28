@@ -1,6 +1,5 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app-constant.dart';
@@ -15,17 +14,82 @@ class DrawerWidget extends StatefulWidget {
 class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      backgroundColor: AppConstant.appSecondaryColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-        ),
-      ),
-      child: Wrap(
-        runSpacing: 10,
-      ),
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width * 1,
+      child: Drawer(
+          backgroundColor: AppConstant.appTextColor,
+          child: Column(
+            children: [
+              Container(
+                decoration: BoxDecoration(),
+                child: Image.asset("assets/images/train.jpg"),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 20, bottom: 20, left: 35, right: 35),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              AppConstant.appSecondaryColor)),
+                      onPressed: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              "RATE",
+                              style: TextStyle(
+                                  color: AppConstant.appTextColor,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Icon(
+                              Icons.star,
+                              color: AppConstant.appTextColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              AppConstant.appSecondaryColor)),
+                      onPressed: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Row(
+                          children: [
+                            Text(
+                              "SHARE",
+                              style: TextStyle(
+                                  color: AppConstant.appTextColor,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Icon(
+                              Icons.share,
+                              color: AppConstant.appTextColor,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 }
