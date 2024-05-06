@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/app-constant.dart';
+import 'drawer-tile.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -87,7 +88,13 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                     ),
                   ],
                 ),
-              )
+              ),
+              drawerTile(text: "Move to the Mapway App"),
+              drawerTile(text: "Get help"),
+              drawerTile(text: "Upgrade"),
+              drawerTile(text: "Privacy Policy"),
+              drawerTile(text: "Terms & Conditions"),
+              drawerTile(text: "Acknowledgements"),
             ],
           )),
     );
