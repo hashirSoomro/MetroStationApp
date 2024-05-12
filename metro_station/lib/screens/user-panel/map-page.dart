@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:metro_station/widgets/drawer-widget.dart';
+import 'package:metro_station/widgets/end-drawer-widget.dart';
 
 import '../../utils/app-constant.dart';
+import '../../widgets/drawer-widget.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -21,6 +22,21 @@ class _MapPageState extends State<MapPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(Icons.stars),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
+        ),
+        actions: [
+          Builder(
+            builder: (context) => IconButton(
+              icon: Icon(Icons.info),
+              onPressed: () => Scaffold.of(context).openEndDrawer(),
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            ),
+          ),
+        ],
         iconTheme: IconThemeData(color: AppConstant.appTextColor),
         backgroundColor: AppConstant.appMainColor,
         title: Text(
@@ -29,6 +45,7 @@ class _MapPageState extends State<MapPage> {
         ),
       ),
       drawer: DrawerWidget(),
+      endDrawer: EndDrawerWidget(),
       body: Container(
         child: Stack(
           children: [
