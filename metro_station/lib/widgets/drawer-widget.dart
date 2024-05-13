@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 
 import '../utils/app-constant.dart';
@@ -10,13 +12,72 @@ class DrawerWidget extends StatefulWidget {
 }
 
 class _DrawerWidgetState extends State<DrawerWidget> {
+  bool _buttonClicked = true;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width * 1,
-        child: Drawer(
-          backgroundColor: AppConstant.appTextColor,
-        ));
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width * 1,
+      child: Drawer(
+        backgroundColor: AppConstant.appTextColor,
+        shadowColor: AppConstant.appTextColor,
+        surfaceTintColor: AppConstant.appTextColor,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 40, left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Shortcuts",
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            backgroundColor: _buttonClicked
+                                ? AppConstant.appTextColor
+                                : AppConstant.appMainColor,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _buttonClicked =
+                                  !_buttonClicked; // toggle the state
+                            });
+                          },
+                          child: _buttonClicked
+                              ? Text("Edit")
+                              : Text(
+                                  "Done",
+                                  style: TextStyle(
+                                      color: AppConstant.appTextColor),
+                                ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        InkWell(
+                          onTap: () {},
+                          child: CircleAvatar(
+                            child: Icon(Icons.arrow_forward_ios),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
