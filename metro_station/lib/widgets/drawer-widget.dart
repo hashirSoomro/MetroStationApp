@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 
@@ -64,13 +64,62 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                           width: 8,
                         ),
                         InkWell(
+                          borderRadius: BorderRadius.circular(30),
                           onTap: () {},
                           child: CircleAvatar(
                             child: Icon(Icons.arrow_forward_ios),
                           ),
                         )
                       ],
-                    )
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.all(12),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {},
+                      child: Container(
+                        child: Icon(
+                          Icons.home,
+                          color: AppConstant.appTextColor,
+                          size: 45,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppConstant.appSecondaryColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: MediaQuery.sizeOf(context).height / 5,
+                        width: MediaQuery.sizeOf(context).width / 2.25,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    InkWell(
+                      borderRadius: BorderRadius.circular(10),
+                      onTap: () {},
+                      child: Container(
+                        child: Icon(
+                          Icons.work,
+                          color: AppConstant.appTextColor,
+                          size: 45,
+                        ),
+                        decoration: BoxDecoration(
+                          color: AppConstant.appSecondaryColor,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        height: MediaQuery.sizeOf(context).height / 5,
+                        width: MediaQuery.sizeOf(context).width / 2.25,
+                      ),
+                    ),
                   ],
                 ),
               )
